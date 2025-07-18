@@ -17,10 +17,10 @@ export default function AboutSection() {
   const { currentTheme } = useTheme()
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       className="py-20 px-4"
-      style={{ 
+      style={{
         background: `linear-gradient(to bottom right, ${currentTheme.colors.background}, ${currentTheme.colors.primary}15)`
       }}
     >
@@ -32,13 +32,13 @@ export default function AboutSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 
+          <h2
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: currentTheme.colors.text }}
           >
             About <span style={{ color: currentTheme.colors.primary }}>Me</span>
           </h2>
-          <p 
+          <p
             className="max-w-2xl mx-auto"
             style={{ color: currentTheme.colors.textSecondary }}
           >
@@ -54,28 +54,29 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h3 
+            <h3
               className="text-2xl font-bold mb-4"
               style={{ color: currentTheme.colors.text }}
             >
               My Journey
             </h3>
-            <p 
+            <p
               className="mb-6"
               style={{ color: currentTheme.colors.textSecondary }}
             >
-              With over 4 years of experience at Brotecs Technologies Ltd., I&apos;ve grown from an intern to a 
-              Software Engineer II. My expertise lies in mobile app development, particularly with Kotlin, 
-              Java, and Flutter. I&apos;m passionate about creating intuitive user interfaces and optimizing 
-              application performance.
+              With over 4 years of hands-on experience at Brotecs Technologies Ltd., I&apos;ve evolved from a curious intern into a confident Software Engineer. My passion lies in crafting elegant, high-performance mobile apps using Kotlin, Java, and Flutter. I thrive on solving complex challenges, building seamless user experiences, and turning ideas into polished, production-ready applications.
             </p>
-            <p 
+            <p
               className="mb-6"
               style={{ color: currentTheme.colors.textSecondary }}
             >
-              I hold an M.Sc. and B.Sc. in Computer Science from American International University-Bangladesh. 
-              My focus is on developing secure, efficient mobile applications with excellent user experiences, 
-              and I&apos;m constantly learning new technologies to stay at the forefront of mobile development.
+              From leading feature development to fine-tuning app performance, I focus on delivering clean, maintainable code that scales. I&apos;m always exploring new tools, trends, and technologies—because in this fast-paced world of mobile development, staying still isn&apos;t an option.
+            </p>
+            <p
+              className="mb-6 font-medium"
+              style={{ color: currentTheme.colors.primary }}
+            >
+              Let&apos;s build something remarkable.
             </p>
             <div className="flex gap-4">
               <motion.a
@@ -84,7 +85,7 @@ export default function AboutSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 rounded-lg font-medium transition-colors inline-block"
-                style={{ 
+                style={{
                   backgroundColor: currentTheme.colors.primary,
                   color: getButtonTextColor(currentTheme)
                 }}
@@ -96,7 +97,7 @@ export default function AboutSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 border rounded-lg font-medium transition-colors inline-block"
-                style={{ 
+                style={{
                   borderColor: currentTheme.colors.accent,
                   color: currentTheme.colors.accent
                 }}
@@ -113,7 +114,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h3 
+            <h3
               className="text-2xl font-bold mb-6"
               style={{ color: currentTheme.colors.text }}
             >
@@ -126,13 +127,13 @@ export default function AboutSection() {
                     <span style={{ color: currentTheme.colors.textSecondary }}>{skill.name}</span>
                     <span style={{ color: currentTheme.colors.primary }}>{skill.level}%</span>
                   </div>
-                  <div 
+                  <div
                     className="h-2 rounded-full overflow-hidden"
                     style={{ backgroundColor: currentTheme.colors.surface }}
                   >
                     <motion.div
                       className="h-full"
-                      style={{ 
+                      style={{
                         background: `linear-gradient(to right, ${currentTheme.colors.primary}, ${currentTheme.colors.secondary})`
                       }}
                       initial={{ width: 0 }}
