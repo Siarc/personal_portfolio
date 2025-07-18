@@ -23,17 +23,17 @@ export default function Home() {
   }, [])
 
   return (
-    <div 
+    <div
       className="overflow-hidden"
       style={{ backgroundColor: currentTheme.colors.background }}
     >
       <Navbar />
 
       {/* Hero Section */}
-      <section 
-        id="home" 
+      <section
+        id="home"
         className="min-h-screen relative overflow-hidden"
-        style={{ 
+        style={{
           background: `linear-gradient(to bottom right, ${currentTheme.colors.background}, ${currentTheme.colors.primary}40, ${currentTheme.colors.background})`
         }}
       >
@@ -48,7 +48,7 @@ export default function Home() {
               y: mousePosition.y / 10,
               scale: [1, 1.2, 1],
             }}
-            transition={{ 
+            transition={{
               x: { type: "spring", stiffness: 50, damping: 30 },
               y: { type: "spring", stiffness: 50, damping: 30 },
               scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
@@ -62,13 +62,13 @@ export default function Home() {
               y: -mousePosition.y / 15,
               scale: [1, 0.8, 1.1, 1],
             }}
-            transition={{ 
+            transition={{
               x: { type: "spring", stiffness: 30, damping: 30 },
               y: { type: "spring", stiffness: 30, damping: 30 },
               scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
             }}
           />
-          
+
           {/* Additional floating elements */}
           <motion.div
             className="absolute top-1/4 left-1/3 w-32 h-32 rounded-full blur-2xl"
@@ -84,7 +84,7 @@ export default function Home() {
               ease: "easeInOut"
             }}
           />
-          
+
           {/* Geometric shapes */}
           <motion.div
             className="absolute bottom-1/4 left-1/4 w-16 h-16 border-2 rotate-45"
@@ -99,13 +99,13 @@ export default function Home() {
               ease: "linear"
             }}
           />
-          
+
           {/* Particle system */}
           {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 rounded-full"
-              style={{ 
+              style={{
                 backgroundColor: currentTheme.colors.text + '30',
                 left: `${20 + i * 10}%`,
                 top: `${30 + (i % 3) * 20}%`
@@ -176,7 +176,7 @@ export default function Home() {
               <motion.a
                 href="#projects"
                 className="px-8 py-3 rounded-full font-semibold transition-colors inline-block"
-                style={{ 
+                style={{
                   backgroundColor: currentTheme.colors.primary,
                   color: getButtonTextColor(currentTheme)
                 }}
@@ -188,7 +188,7 @@ export default function Home() {
               <motion.a
                 href="#contact"
                 className="px-8 py-3 border rounded-full font-semibold transition-colors inline-block"
-                style={{ 
+                style={{
                   borderColor: currentTheme.colors.accent,
                   color: currentTheme.colors.accent
                 }}
@@ -244,13 +244,13 @@ export default function Home() {
               delay: 0.5,
             }}
           />
-          
+
           {/* Additional floating tech symbols */}
           {['</>', '{}', '[]', '()'].map((symbol, i) => (
             <motion.div
               key={symbol}
               className="absolute text-2xl font-mono opacity-20"
-              style={{ 
+              style={{
                 color: currentTheme.colors.primary,
                 left: `${20 + i * 20}%`,
                 top: `${30 + i * 15}%`
@@ -270,11 +270,14 @@ export default function Home() {
               {symbol}
             </motion.div>
           ))}
-          
+
           {/* Orbiting elements */}
           <motion.div
             className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full"
-            style={{ backgroundColor: currentTheme.colors.accent }}
+            style={{
+              backgroundColor: currentTheme.colors.accent,
+              transformOrigin: "50px 50px"
+            }}
             animate={{
               rotate: [0, 360],
             }}
@@ -282,9 +285,6 @@ export default function Home() {
               duration: 8,
               repeat: Infinity,
               ease: "linear"
-            }}
-            style={{
-              transformOrigin: "50px 50px"
             }}
           />
         </div>
