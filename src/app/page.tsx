@@ -37,16 +37,22 @@ export default function Home() {
           background: `linear-gradient(to bottom right, ${currentTheme.colors.background}, ${currentTheme.colors.primary}40, ${currentTheme.colors.background})`
         }}
       >
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
+        {/* Enhanced Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Main gradient blobs */}
           <motion.div
             className="absolute w-96 h-96 rounded-full blur-3xl"
             style={{ backgroundColor: currentTheme.colors.primary + '33' }}
             animate={{
               x: mousePosition.x / 10,
               y: mousePosition.y / 10,
+              scale: [1, 1.2, 1],
             }}
-            transition={{ type: "spring", stiffness: 50, damping: 30 }}
+            transition={{ 
+              x: { type: "spring", stiffness: 50, damping: 30 },
+              y: { type: "spring", stiffness: 50, damping: 30 },
+              scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+            }}
           />
           <motion.div
             className="absolute top-1/2 right-1/4 w-64 h-64 rounded-full blur-3xl"
@@ -54,9 +60,69 @@ export default function Home() {
             animate={{
               x: -mousePosition.x / 15,
               y: -mousePosition.y / 15,
+              scale: [1, 0.8, 1.1, 1],
             }}
-            transition={{ type: "spring", stiffness: 30, damping: 30 }}
+            transition={{ 
+              x: { type: "spring", stiffness: 30, damping: 30 },
+              y: { type: "spring", stiffness: 30, damping: 30 },
+              scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+            }}
           />
+          
+          {/* Additional floating elements */}
+          <motion.div
+            className="absolute top-1/4 left-1/3 w-32 h-32 rounded-full blur-2xl"
+            style={{ backgroundColor: currentTheme.colors.accent + '25' }}
+            animate={{
+              x: [0, 50, -30, 0],
+              y: [0, -40, 20, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Geometric shapes */}
+          <motion.div
+            className="absolute bottom-1/4 left-1/4 w-16 h-16 border-2 rotate-45"
+            style={{ borderColor: currentTheme.colors.primary + '40' }}
+            animate={{
+              rotate: [45, 225, 405],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          
+          {/* Particle system */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 rounded-full"
+              style={{ 
+                backgroundColor: currentTheme.colors.text + '30',
+                left: `${20 + i * 10}%`,
+                top: `${30 + (i % 3) * 20}%`
+              }}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.8,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
         </div>
 
         {/* Main content */}
@@ -134,13 +200,14 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Floating elements */}
+          {/* Enhanced Floating elements */}
           <motion.div
             className="absolute top-20 left-20 w-4 h-4 rounded-full"
             style={{ backgroundColor: currentTheme.colors.accent }}
             animate={{
               y: [0, -20, 0],
               opacity: [0.5, 1, 0.5],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 3,
@@ -154,6 +221,7 @@ export default function Home() {
             animate={{
               y: [0, -30, 0],
               opacity: [0.3, 0.8, 0.3],
+              rotate: [0, 180, 360],
             }}
             transition={{
               duration: 4,
@@ -174,6 +242,49 @@ export default function Home() {
               repeat: Infinity,
               ease: "easeInOut",
               delay: 0.5,
+            }}
+          />
+          
+          {/* Additional floating tech symbols */}
+          {['</>', '{}', '[]', '()'].map((symbol, i) => (
+            <motion.div
+              key={symbol}
+              className="absolute text-2xl font-mono opacity-20"
+              style={{ 
+                color: currentTheme.colors.primary,
+                left: `${20 + i * 20}%`,
+                top: `${30 + i * 15}%`
+              }}
+              animate={{
+                y: [0, -25, 0],
+                rotate: [0, 10, -10, 0],
+                opacity: [0.1, 0.3, 0.1],
+              }}
+              transition={{
+                duration: 5 + i,
+                repeat: Infinity,
+                delay: i * 2,
+                ease: "easeInOut"
+              }}
+            >
+              {symbol}
+            </motion.div>
+          ))}
+          
+          {/* Orbiting elements */}
+          <motion.div
+            className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full"
+            style={{ backgroundColor: currentTheme.colors.accent }}
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              transformOrigin: "50px 50px"
             }}
           />
         </div>

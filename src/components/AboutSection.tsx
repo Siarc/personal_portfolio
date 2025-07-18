@@ -19,11 +19,82 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 px-4"
+      className="py-20 px-4 relative overflow-hidden"
       style={{
         background: `linear-gradient(to bottom right, ${currentTheme.colors.background}, ${currentTheme.colors.primary}15)`
       }}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating code symbols */}
+        {['{', '}', '<', '>', '[', ']', '(', ')'].map((symbol, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-6xl font-mono opacity-10"
+            style={{
+              color: currentTheme.colors.primary,
+              left: `${10 + i * 12}%`,
+              top: `${20 + (i % 3) * 30}%`
+            }}
+            animate={{
+              y: [0, -50, 0],
+              rotate: [0, 360],
+              opacity: [0.05, 0.15, 0.05],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              delay: i * 1.5,
+              ease: "easeInOut"
+            }}
+          >
+            {symbol}
+          </motion.div>
+        ))}
+
+        {/* Gradient orbs */}
+        <motion.div
+          className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full blur-3xl"
+          style={{ backgroundColor: currentTheme.colors.secondary + '20' }}
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, 30, -20, 0],
+            y: [0, -20, 10, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Tech stack icons floating */}
+        {['K', 'J', 'F', 'P'].map((tech, i) => (
+          <motion.div
+            key={tech}
+            className="absolute w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg"
+            style={{
+              backgroundColor: currentTheme.colors.accent + '20',
+              color: currentTheme.colors.accent,
+              left: `${15 + i * 20}%`,
+              bottom: `${10 + i * 5}%`
+            }}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 180, 360],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 6 + i,
+              repeat: Infinity,
+              delay: i * 0.8,
+              ease: "easeInOut"
+            }}
+          >
+            {tech}
+          </motion.div>
+        ))}
+      </div>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

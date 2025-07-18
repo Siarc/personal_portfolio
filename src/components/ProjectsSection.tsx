@@ -37,9 +37,77 @@ export default function ProjectsSection() {
   return (
     <section 
       id="projects" 
-      className="py-20 px-4"
+      className="py-20 px-4 relative overflow-hidden"
       style={{ backgroundColor: currentTheme.colors.surface }}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="w-full h-full"
+            style={{
+              backgroundImage: `linear-gradient(${currentTheme.colors.primary} 1px, transparent 1px), linear-gradient(90deg, ${currentTheme.colors.primary} 1px, transparent 1px)`,
+              backgroundSize: '50px 50px'
+            }}
+          />
+        </div>
+        
+        {/* Floating project icons */}
+        {['📱', '💻', '🚀', '⚡', '🔧', '🎯'].map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-4xl opacity-20"
+            style={{ 
+              left: `${5 + i * 15}%`,
+              top: `${10 + (i % 4) * 20}%`
+            }}
+            animate={{
+              y: [0, -40, 0],
+              rotate: [0, 10, -10, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 6 + i * 0.5,
+              repeat: Infinity,
+              delay: i * 1.2,
+              ease: "easeInOut"
+            }}
+          >
+            {icon}
+          </motion.div>
+        ))}
+        
+        {/* Animated lines */}
+        <motion.div
+          className="absolute top-1/4 left-0 w-full h-px"
+          style={{ backgroundColor: currentTheme.colors.accent + '30' }}
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.5, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Floating geometric shapes */}
+        <motion.div
+          className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 rounded-lg"
+          style={{ borderColor: currentTheme.colors.secondary + '40' }}
+          animate={{
+            rotate: [0, 90, 180, 270, 360],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

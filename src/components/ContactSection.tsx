@@ -58,9 +58,92 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-4"
+      className="py-20 px-4 relative overflow-hidden"
       style={{ backgroundColor: currentTheme.colors.background }}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Communication icons floating */}
+        {['📧', '📱', '💬', '🌐', '📍', '✉️'].map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-3xl opacity-10"
+            style={{ 
+              left: `${8 + i * 16}%`,
+              top: `${15 + (i % 3) * 25}%`
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 10, -10, 0],
+              rotate: [0, 5, -5, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 7 + i * 0.8,
+              repeat: Infinity,
+              delay: i * 1.5,
+              ease: "easeInOut"
+            }}
+          >
+            {icon}
+          </motion.div>
+        ))}
+        
+        {/* Gradient waves */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-full h-32 opacity-20"
+          style={{
+            background: `linear-gradient(45deg, ${currentTheme.colors.primary}40, ${currentTheme.colors.secondary}40, ${currentTheme.colors.accent}40)`
+          }}
+          animate={{
+            x: ['-100%', '100%'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        
+        {/* Pulsing connection lines */}
+        <motion.div
+          className="absolute top-1/2 left-1/4 w-px h-32"
+          style={{ backgroundColor: currentTheme.colors.primary + '30' }}
+          animate={{
+            scaleY: [0, 1, 0],
+            opacity: [0, 0.6, 0],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Floating contact bubbles */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-8 h-8 rounded-full border-2"
+            style={{ 
+              borderColor: currentTheme.colors.accent + '40',
+              left: `${20 + i * 15}%`,
+              bottom: `${20 + i * 8}%`
+            }}
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.8, 0.3],
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 5 + i,
+              repeat: Infinity,
+              delay: i * 1.2,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
