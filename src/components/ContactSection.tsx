@@ -100,7 +100,7 @@ export default function ContactSection() {
                 Contact Information
               </h3>
               <p style={{ color: currentTheme.colors.textSecondary }}>
-                I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your vision.
               </p>
             </div>
 
@@ -363,7 +363,7 @@ export default function ContactSection() {
                     color: currentTheme.colors.primary
                   }}
                 >
-                  ✅ Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! I&apos;ll get back to you soon.
                 </motion.div>
               )}
 

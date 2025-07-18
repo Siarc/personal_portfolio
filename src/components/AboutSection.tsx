@@ -42,7 +42,7 @@ export default function AboutSection() {
             className="max-w-2xl mx-auto"
             style={{ color: currentTheme.colors.textSecondary }}
           >
-            I'm a passionate developer focused on creating beautiful and functional mobile experiences.
+            I&apos;m a passionate developer focused on creating beautiful and functional mobile experiences.
           </p>
         </motion.div>
 
@@ -64,9 +64,9 @@ export default function AboutSection() {
               className="mb-6"
               style={{ color: currentTheme.colors.textSecondary }}
             >
-              With over 4 years of experience at Brotecs Technologies Ltd., I've grown from an intern to a 
+              With over 4 years of experience at Brotecs Technologies Ltd., I&apos;ve grown from an intern to a 
               Software Engineer II. My expertise lies in mobile app development, particularly with Kotlin, 
-              Java, and Flutter. I'm passionate about creating intuitive user interfaces and optimizing 
+              Java, and Flutter. I&apos;m passionate about creating intuitive user interfaces and optimizing 
               application performance.
             </p>
             <p 
@@ -75,7 +75,7 @@ export default function AboutSection() {
             >
               I hold an M.Sc. and B.Sc. in Computer Science from American International University-Bangladesh. 
               My focus is on developing secure, efficient mobile applications with excellent user experiences, 
-              and I'm constantly learning new technologies to stay at the forefront of mobile development.
+              and I&apos;m constantly learning new technologies to stay at the forefront of mobile development.
             </p>
             <div className="flex gap-4">
               <motion.a

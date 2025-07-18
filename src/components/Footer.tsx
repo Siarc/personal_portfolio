@@ -29,7 +29,7 @@ export default function Footer() {
               style={{ color: currentTheme.colors.textSecondary }}
             >
               Software Engineer specializing in mobile app development with Kotlin, Java, and Flutter.
-              Let's work together to bring your ideas to life.
+              Let&apos;s work together to bring your ideas to life.
             </p>
           </div>
 
