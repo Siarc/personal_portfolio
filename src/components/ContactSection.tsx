@@ -62,7 +62,7 @@ export default function ContactSection() {
       style={{ backgroundColor: currentTheme.colors.background }}
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Communication icons floating */}
         {['📧', '📱', '💬', '🌐', '📍', '✉️'].map((icon, i) => (
           <motion.div
@@ -144,7 +144,7 @@ export default function ContactSection() {
           />
         ))}
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

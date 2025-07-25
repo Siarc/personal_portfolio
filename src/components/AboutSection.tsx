@@ -25,7 +25,7 @@ export default function AboutSection() {
       }}
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating code symbols */}
         {['{', '}', '<', '>', '[', ']', '(', ')'].map((symbol, i) => (
           <motion.div
@@ -95,7 +95,7 @@ export default function AboutSection() {
           </motion.div>
         ))}
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

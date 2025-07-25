@@ -27,9 +27,17 @@ const projects = [
     id: 3,
     title: 'Minu Monitor',
     description: 'Secured, standard-based telemedicine service that measures health metrics like ECG, Blood Pressure, Oxygen Level, Glucose Level, and Body Temperature.',
-    tags: ['Flutter', 'Bluetooth', 'Healthcare', 'IoT'],
+    tags: ['Kotlin', 'Bluetooth', 'Healthcare', 'IoT'],
     imageUrl: '/images/placeholder.jpg',
     iconUrl: '/images/projects/minu_monitor.png',
+  },
+  {
+    id: 4,
+    title: 'Next Cabin Tools',
+    description: 'Advanced aviation diagnostic app that allows flight crew and passengers to troubleshoot in-flight connectivity and SATCOM systems. Features real-time flight tracking, interactive maps, weather status, and comprehensive network diagnostics for business aviation aircraft.',
+    tags: ['Kotlin', 'Aviation', 'SATCOM', 'Networking'],
+    imageUrl: '/images/placeholder.jpg',
+    iconUrl: '/images/projects/next_cabin_tools.png',
   },
 ]
 
@@ -44,7 +52,7 @@ export default function ProjectsSection() {
       style={{ backgroundColor: currentTheme.colors.surface }}
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-5">
           <div 
@@ -111,7 +119,7 @@ export default function ProjectsSection() {
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
