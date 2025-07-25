@@ -4,7 +4,7 @@ A modern, interactive portfolio website showcasing mobile app development expert
 
 ## 🌐 Live Demo
 
-**Production Site**: [https://personal-portfolio-sand-mu.vercel.app/](https://personal-portfolio-sand-mu.vercel.app/)
+**Production Site**: [https://aminul-islam.vercel.app/](https://aminul-islam.vercel.app/)
 
 ## ✨ Features
 
