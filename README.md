@@ -1,24 +1,33 @@
-# Portfolio Website
+# Aminul Islam - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, featuring smooth animations and a clean design. This project showcases personal projects, skills, and provides an easy way for visitors to get in touch.
+A modern, interactive portfolio website showcasing mobile app development expertise. Built with Next.js and featuring advanced particle text effects, smooth animations, and professional project showcases.
 
-## Features
+## 🌐 Live Demo
 
-- **Responsive Design**: Optimized for all device sizes
-- **Dark/Light Theme**: Toggle between themes with smooth transitions
-- **Smooth Animations**: Powered by Framer Motion for engaging user experience
+**Production Site**: [https://personal-portfolio-sand-mu.vercel.app/](https://personal-portfolio-sand-mu.vercel.app/)
+
+## ✨ Features
+
+- **Interactive Particle Text**: Mouse-responsive particle animation for name display
+- **Enhanced Background Animations**: Dynamic floating elements across all sections
+- **Responsive Design**: Optimized for all device sizes and touch interactions
+- **Dark/Light Theme**: Seamless theme switching with smooth transitions
+- **Project Showcase**: Real project cards with app icons and Google Play Store links
 - **Contact Form**: Integrated with EmailJS for direct messaging
 - **Modern Stack**: Built with Next.js 15, React 19, and Tailwind CSS 4
 - **TypeScript**: Full type safety throughout the application
+- **Performance Optimized**: Smooth 60fps animations with proper cleanup
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Framework**: Next.js 15
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
-- **Animations**: Framer Motion
+- **Animations**: Framer Motion + Custom Canvas Animations
 - **Email Service**: EmailJS
-- **Deployment**: Vercel (recommended)
+- **Deployment**: Vercel
+- **Canvas API**: For particle text effects
+- **Performance**: RequestAnimationFrame for smooth 60fps animations
 
 ## Getting Started
 
@@ -49,7 +58,7 @@ A modern, responsive portfolio website built with Next.js, featuring smooth anim
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
@@ -58,21 +67,53 @@ src/
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
-│   ├── AboutSection.tsx
-│   ├── ContactSection.tsx
-│   ├── Footer.tsx
-│   ├── Navbar.tsx
-│   └── ProjectsSection.tsx
-└── contexts/
-    └── ThemeContext.tsx
+│   ├── AboutSection.tsx      # Skills and journey section
+│   ├── ContactSection.tsx    # Contact form with EmailJS
+│   ├── Footer.tsx           # Animated terminal footer
+│   ├── Navbar.tsx           # Navigation with theme toggle
+│   ├── ParticleText.tsx     # Interactive particle text effect
+│   └── ProjectsSection.tsx  # Project showcase with Play Store links
+├── contexts/
+│   └── ThemeContext.tsx     # Theme management system
+└── public/
+    └── images/
+        ├── placeholder.jpg   # Project cover placeholder
+        └── projects/        # App icons and project assets
 ```
 
-## Customization
+## 🎨 Key Components
 
-- **Personal Information**: Update content in the component files
-- **Projects**: Modify `ProjectsSection.tsx` to showcase your projects
-- **Styling**: Customize colors and themes in `globals.css` and Tailwind config
-- **Resume**: Replace `public/aminul-islam-cv.pdf` with your own resume
+### ParticleText.tsx
+- **Interactive particle system** that converts text to animated particles
+- **Mouse interaction** with configurable radius (150px)
+- **Canvas-based rendering** for smooth 60fps performance
+- **Theme-aware colors** that adapt to light/dark modes
+
+### ProjectsSection.tsx
+- **Real project showcase** featuring 4 mobile applications
+- **Google Play Store integration** with direct links
+- **App icon overlays** on placeholder covers
+- **Hover animations** and interactive elements
+
+## 🎯 Featured Projects
+
+The portfolio showcases 4 professional mobile applications:
+
+1. **SD Cabin** - In-flight connectivity app for aircraft
+2. **Phoring** - VOIP-based SIM-less 2nd line service  
+3. **Minu Monitor** - Healthcare telemedicine monitoring app
+4. **Next Cabin Tools** - Aviation diagnostic and troubleshooting app
+
+All projects link directly to Google Play Store for live demonstrations.
+
+## 🎨 Customization
+
+- **Particle Text**: Modify text, colors, and interaction radius in `ParticleText.tsx`
+- **Projects**: Update project data and links in `ProjectsSection.tsx`
+- **Animations**: Adjust background animations in each section component
+- **Theme Colors**: Customize colors in `ThemeContext.tsx`
+- **Content**: Update personal information across component files
+- **Images**: Replace placeholder images in `public/images/` folder
 
 ## Scripts
 
@@ -91,3 +132,36 @@ The easiest way to deploy is using [Vercel](https://vercel.com/new):
 4. Deploy automatically on every push
 
 For other deployment options, check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## 🚀 Performance Features
+
+- **Optimized Animations**: 60fps particle system with proper cleanup
+- **Responsive Images**: Next.js Image component with lazy loading
+- **Theme Persistence**: Smooth theme transitions without flicker
+- **Memory Management**: Proper event listener cleanup and animation cancellation
+- **Mobile Optimized**: Touch-friendly interactions and responsive design
+
+## 🎮 Interactive Elements
+
+- **Particle Text Effect**: Hover over "AMINUL ISLAM" to see particles scatter
+- **Background Animations**: Floating elements throughout all sections
+- **Project Cards**: Hover effects with image scaling and button animations
+- **Contact Form**: Real-time validation and EmailJS integration
+- **Theme Toggle**: Instant dark/light mode switching
+
+## 📱 Mobile App Development Expertise
+
+This portfolio demonstrates expertise in:
+- **Kotlin & Java** for Android development
+- **Aviation Apps** with SATCOM and connectivity features
+- **Healthcare Apps** with IoT device integration
+- **VOIP Applications** with SIP and IAX2 protocols
+- **Network Diagnostics** and troubleshooting tools
+
+## 🔧 Development Notes
+
+- **Canvas Animations**: Custom particle system built with HTML5 Canvas API
+- **Vector Mathematics**: Mouse repulsion effects using distance calculations
+- **React Patterns**: useRef for animation loops and DOM manipulation
+- **TypeScript**: Comprehensive type safety for better development experience
+- **Performance**: RequestAnimationFrame for smooth animations
