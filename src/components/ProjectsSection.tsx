@@ -12,21 +12,24 @@ const projects = [
     title: 'SD Cabin',
     description: 'In-flight connectivity app that simplifies access to multiple key functions from a single application while on board an aircraft equipped with SD Hardware.',
     tags: ['Kotlin', 'Java', 'Android', 'Aviation'],
-    imageUrl: 'https://placehold.co/600x400/3b0764/ffffff?text=SD+Cabin',
+    imageUrl: '/images/placeholder.jpg',
+    iconUrl: '/images/projects/sdcabin.png',
   },
   {
     id: 2,
     title: 'Phoring - SIM-Less 2nd Line',
     description: 'VOIP-based secured Sim-Less 2nd line phone service provider that gives users a worldwide phone number to add a sideline to their smartphone.',
     tags: ['Kotlin', 'VOIP', 'SIP', 'IAX2'],
-    imageUrl: 'https://placehold.co/600x400/4c1d95/ffffff?text=Phoring',
+    imageUrl: '/images/placeholder.jpg',
+    iconUrl: '/images/projects/phoring.png',
   },
   {
     id: 3,
     title: 'Minu Monitor',
     description: 'Secured, standard-based telemedicine service that measures health metrics like ECG, Blood Pressure, Oxygen Level, Glucose Level, and Body Temperature.',
     tags: ['Flutter', 'Bluetooth', 'Healthcare', 'IoT'],
-    imageUrl: 'https://placehold.co/600x400/6d28d9/ffffff?text=Minu+Monitor',
+    imageUrl: '/images/placeholder.jpg',
+    iconUrl: '/images/projects/minu_monitor.png',
   },
 ]
 
@@ -154,6 +157,16 @@ export default function ProjectsSection() {
                   height={400}
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
                 />
+                {/* App Icon Overlay */}
+                <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-xl shadow-lg p-2 border-2 border-white/20">
+                  <Image 
+                    src={project.iconUrl} 
+                    alt={`${project.title} icon`}
+                    width={48}
+                    height={48}
+                    className="object-contain w-full h-full rounded-lg"
+                  />
+                </div>
               </div>
               <div className="p-6">
                 <h3 

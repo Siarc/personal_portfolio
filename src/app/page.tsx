@@ -156,7 +156,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <span style={{ color: currentTheme.colors.primary }}>Software Engineer II</span> &
+              <span style={{ color: currentTheme.colors.primary }}>Software Engineer</span> &
               <span style={{ color: currentTheme.colors.secondary }}> Mobile App Developer</span>
             </motion.div>
 
