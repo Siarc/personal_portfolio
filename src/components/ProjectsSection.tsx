@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useTheme, getButtonTextColor } from '@/contexts/ThemeContext'
+import AnimatedText from '@/components/AnimatedText'
 
 // Project data based on your experience
 const projects = [
@@ -135,7 +136,12 @@ export default function ProjectsSection() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: currentTheme.colors.text }}
           >
-            My <span style={{ color: currentTheme.colors.primary }}>Projects</span>
+            My <AnimatedText 
+              text="Projects" 
+              animatedIndices={[0]} // Animate 'P'
+              className="inline"
+              style={{ color: currentTheme.colors.primary }}
+            />
           </h2>
           <p 
             className="max-w-2xl mx-auto"

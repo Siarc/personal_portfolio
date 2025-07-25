@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useTheme, getButtonTextColor } from '@/contexts/ThemeContext'
+import AnimatedText from '@/components/AnimatedText'
 
 // Skills data
 const skills = [
@@ -107,7 +108,12 @@ export default function AboutSection() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: currentTheme.colors.text }}
           >
-            About <span style={{ color: currentTheme.colors.primary }}>Me</span>
+            About <AnimatedText 
+              text="Me" 
+              animatedIndices={[0]} // Animate 'M'
+              className="inline"
+              style={{ color: currentTheme.colors.primary }}
+            />
           </h2>
           <p
             className="max-w-2xl mx-auto"

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { useTheme, getButtonTextColor } from '@/contexts/ThemeContext'
+import AnimatedText from '@/components/AnimatedText'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -156,7 +157,12 @@ export default function ContactSection() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: currentTheme.colors.text }}
           >
-            Get In <span style={{ color: currentTheme.colors.primary }}>Touch</span>
+            Get In <AnimatedText 
+              text="Touch" 
+              animatedIndices={[0]} // Animate 'T'
+              className="inline"
+              style={{ color: currentTheme.colors.primary }}
+            />
           </h2>
           <p
             className="max-w-2xl mx-auto"

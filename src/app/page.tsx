@@ -9,6 +9,7 @@ import ProjectsSection from '@/components/ProjectsSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import ParticleText from '@/components/ParticleText'
+import AnimatedText from '@/components/AnimatedText'
 
 
 
