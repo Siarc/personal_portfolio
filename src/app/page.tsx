@@ -8,6 +8,8 @@ import AboutSection from '@/components/AboutSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import ParticleText from '@/components/ParticleText'
+
 
 
 export default function Home() {
@@ -134,15 +136,18 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center"
           >
-            <motion.h1
-              className="text-6xl md:text-8xl font-bold mb-6"
-              style={{ color: currentTheme.colors.text }}
+            {/* Particle Text Effect */}
+            <motion.div
+              className="mb-6 w-full max-w-4xl"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              AMINUL ISLAM
-            </motion.h1>
+              <ParticleText 
+                text="AMINUL ISLAM" 
+                className="w-full h-32 md:h-40"
+              />
+            </motion.div>
 
             <motion.div
               className="text-xl md:text-2xl mb-8"
