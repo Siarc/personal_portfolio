@@ -36,29 +36,31 @@ class Particle {
   }
 
   update(mouseX: number | null, mouseY: number | null, mouseRadius: number) {
-    if (mouseX === null || mouseY === null) return
+    // Always try to return to base position first
+    if (this.x !== this.baseX) {
+      const dx = this.x - this.baseX
+      this.x -= dx / 8
+    }
+    if (this.y !== this.baseY) {
+      const dy = this.y - this.baseY
+      this.y -= dy / 8
+    }
 
-    const dx = mouseX - this.x
-    const dy = mouseY - this.y
-    const distance = Math.sqrt(dx * dx + dy * dy)
-    const forceDirectionX = dx / distance
-    const forceDirectionY = dy / distance
-    const maxDistance = mouseRadius
-    const force = (maxDistance - distance) / maxDistance
-    const directionX = forceDirectionX * force * this.density
-    const directionY = forceDirectionY * force * this.density
+    // Apply mouse repulsion effect only if mouse is present
+    if (mouseX !== null && mouseY !== null) {
+      const dx = mouseX - this.x
+      const dy = mouseY - this.y
+      const distance = Math.sqrt(dx * dx + dy * dy)
+      
+      if (distance < mouseRadius && distance > 0) {
+        const forceDirectionX = dx / distance
+        const forceDirectionY = dy / distance
+        const force = (mouseRadius - distance) / mouseRadius
+        const directionX = forceDirectionX * force * this.density * 0.6
+        const directionY = forceDirectionY * force * this.density * 0.6
 
-    if (distance < mouseRadius) {
-      this.x -= directionX
-      this.y -= directionY
-    } else {
-      if (this.x !== this.baseX) {
-        const dx = this.x - this.baseX
-        this.x -= dx / 10
-      }
-      if (this.y !== this.baseY) {
-        const dy = this.y - this.baseY
-        this.y -= dy / 10
+        this.x -= directionX
+        this.y -= directionY
       }
     }
   }
@@ -69,7 +71,7 @@ export default function ParticleText({ text, className = '' }: ParticleTextProps
   const { currentTheme } = useTheme()
   const animationRef = useRef<number | undefined>(undefined)
   const particleArrayRef = useRef<Particle[]>([])
-  const mouseRef = useRef<{ x: number | null; y: number | null; radius: number }>({ x: null, y: null, radius: 190 })
+  const mouseRef = useRef<{ x: number | null; y: number | null; radius: number }>({ x: null, y: null, radius: 100 })
 
 
   useEffect(() => {
@@ -102,7 +104,7 @@ export default function ParticleText({ text, className = '' }: ParticleTextProps
           if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
             const positionX = x
             const positionY = y
-            particleArrayRef.current.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, currentTheme.colors.text))
+            particleArrayRef.current.push(new Particle(positionX, positionY, currentTheme.colors.text))
             const lastParticle = particleArrayRef.current[particleArrayRef.current.length - 1]
             lastParticle.baseX = positionX
             lastParticle.baseY = positionY

@@ -143,8 +143,8 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <ParticleText 
-                text="AMINUL ISLAM" 
+              <ParticleText
+                text="AMINUL ISLAM"
                 className="w-full h-32 md:h-40"
               />
             </motion.div>
