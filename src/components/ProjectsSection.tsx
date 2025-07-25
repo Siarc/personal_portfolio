@@ -14,6 +14,7 @@ const projects = [
     tags: ['Kotlin', 'Java', 'Android', 'Aviation'],
     imageUrl: '/images/placeholder.jpg',
     iconUrl: '/images/projects/sdcabin.png',
+    projectUrl: 'https://play.google.com/store/apps/details?id=com.satcomdirect.sdcabin&hl=en',
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const projects = [
     tags: ['Kotlin', 'VOIP', 'SIP', 'IAX2'],
     imageUrl: '/images/placeholder.jpg',
     iconUrl: '/images/projects/phoring.png',
+    projectUrl: 'https://play.google.com/store/apps/details?id=com.brotecs.phoring&hl=en',
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const projects = [
     tags: ['Kotlin', 'Bluetooth', 'Healthcare', 'IoT'],
     imageUrl: '/images/placeholder.jpg',
     iconUrl: '/images/projects/minu_monitor.png',
+    projectUrl: 'https://play.google.com/store/apps/details?id=com.brotecs.minumonitor&hl=en',
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const projects = [
     tags: ['Kotlin', 'Aviation', 'SATCOM', 'Networking'],
     imageUrl: '/images/placeholder.jpg',
     iconUrl: '/images/projects/next_cabin_tools.png',
+    projectUrl: 'https://play.google.com/store/apps/details?id=com.stitel.cabintools&hl=en',
   },
 ]
 
@@ -203,17 +207,20 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <motion.button
+                <motion.a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-4 px-4 py-2 rounded-lg font-medium transition-colors"
+                  className="mt-4 px-4 py-2 rounded-lg font-medium transition-colors inline-block"
                   style={{ 
                     backgroundColor: currentTheme.colors.primary,
                     color: getButtonTextColor(currentTheme)
                   }}
                 >
                   View Project
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           ))}
