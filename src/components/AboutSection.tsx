@@ -8,10 +8,10 @@ import AnimatedText from '@/components/AnimatedText'
 const skills = [
   { name: 'Kotlin', level: 95 },
   { name: 'Java', level: 90 },
-  { name: 'Flutter', level: 85 },
-  { name: 'Python', level: 80 },
+  { name: 'Flutter & Dart', level: 85 },
+  { name: 'Python', level: 78 },
+  { name: 'AI Agent Development', level: 80 },
   { name: 'Firebase Services', level: 85 },
-  { name: 'Azure Web Services', level: 75 },
 ]
 
 export default function AboutSection() {
