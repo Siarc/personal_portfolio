@@ -32,7 +32,8 @@ export default function ContactSection() {
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS configuration is missing. Please check your environment variables.')
+        console.error('EmailJS configuration missing:', { serviceId: !!serviceId, templateId: !!templateId, publicKey: !!publicKey })
+        throw new Error('Email service is currently unavailable. Please contact me directly at aminul.irony@gmail.com')
       }
 
       const templateParams = {

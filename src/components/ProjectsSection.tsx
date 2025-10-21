@@ -180,10 +180,11 @@ export default function ProjectsSection() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={project.imageUrl}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.description.substring(0, 100)}...`}
                   width={600}
                   height={400}
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  priority={index < 2} // Prioritize loading first 2 images
                 />
                 {/* App Icon Overlay */}
                 <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-xl shadow-lg p-2 border-2 border-white/20">

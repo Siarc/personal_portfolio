@@ -1,7 +1,5 @@
 'use client'
 
-import { useTheme } from '@/contexts/ThemeContext'
-
 interface AnimatedTextProps {
   text: string
   animatedIndices?: number[]  // Array of character indices to animate
@@ -11,22 +9,22 @@ interface AnimatedTextProps {
   style?: React.CSSProperties // Style prop for the container
 }
 
-export default function AnimatedText({ 
-  text, 
-  animatedIndices = [], 
+export default function AnimatedText({
+  text,
+  animatedIndices = [],
   className = '',
   duration = '5s',
   delay = '0.2s',
   style
 }: AnimatedTextProps) {
-  const { currentTheme } = useTheme()
-
   return (
     <span className={className} style={style}>
       {text.split('').map((char, index) => {
         const isAnimated = animatedIndices.includes(index)
-        const animationDelay = isAnimated ? `${parseFloat(delay) * animatedIndices.indexOf(index)}s` : '0s'
-        
+        // Optimize: Use indexOf result directly instead of calling it twice
+        const animatedIndex = isAnimated ? animatedIndices.indexOf(index) : -1
+        const animationDelay = animatedIndex >= 0 ? `${parseFloat(delay) * animatedIndex}s` : '0s'
+
         return (
           <span
             key={index}

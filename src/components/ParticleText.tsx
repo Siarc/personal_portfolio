@@ -179,7 +179,7 @@ export default function ParticleText({ text, className = '' }: ParticleTextProps
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // STEP 6: Create particles from text pixels
-      const particleDensity = 2  // Skip every 2 pixels (reduces particle count for performance)
+      const particleDensity = Math.max(2, Math.floor(canvas.width / 200))  // Dynamic density based on canvas size
 
       // Loop through every pixel in the image data
       for (let y = 0; y < textCoordinates.height; y += particleDensity) {
