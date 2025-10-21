@@ -44,6 +44,16 @@ const projects = [
     iconUrl: '/images/projects/next_cabin_tools.png',
     projectUrl: 'https://play.google.com/store/apps/details?id=com.stitel.cabintools&hl=en',
   },
+  {
+    id: 5,
+    title: 'LumeHR',
+    description: 'LumeHR is an HR app designed to simplify workforce management. From smart attendance to leave, performance, and real-time insights—everything you need, all in one place.',
+    tags: ['Flutter', 'Android', 'iOS', 'HR App'],
+    imageUrl: '/images/placeholder.jpg',
+    iconUrl: '/images/projects/lume_hr.png',
+    projectUrl: 'https://play.google.com/store/apps/details?id=com.brotecs.lumeHr',
+    iosUrl: 'https://apps.apple.com/us/app/lumehr/id6748898201?platform=iphone',
+  },
 ]
 
 export default function ProjectsSection() {
@@ -51,8 +61,8 @@ export default function ProjectsSection() {
   const constraintsRef = useRef(null)
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="py-20 px-4 relative overflow-hidden"
       style={{ backgroundColor: currentTheme.colors.surface }}
     >
@@ -60,7 +70,7 @@ export default function ProjectsSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div 
+          <div
             className="w-full h-full"
             style={{
               backgroundImage: `linear-gradient(${currentTheme.colors.primary} 1px, transparent 1px), linear-gradient(90deg, ${currentTheme.colors.primary} 1px, transparent 1px)`,
@@ -68,13 +78,13 @@ export default function ProjectsSection() {
             }}
           />
         </div>
-        
+
         {/* Floating project icons */}
         {['📱', '💻', '🚀', '⚡', '🔧', '🎯'].map((icon, i) => (
           <motion.div
             key={i}
             className="absolute text-4xl opacity-20"
-            style={{ 
+            style={{
               left: `${5 + i * 15}%`,
               top: `${10 + (i % 4) * 20}%`
             }}
@@ -93,7 +103,7 @@ export default function ProjectsSection() {
             {icon}
           </motion.div>
         ))}
-        
+
         {/* Animated lines */}
         <motion.div
           className="absolute top-1/4 left-0 w-full h-px"
@@ -108,7 +118,7 @@ export default function ProjectsSection() {
             ease: "easeInOut"
           }}
         />
-        
+
         {/* Floating geometric shapes */}
         <motion.div
           className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 rounded-lg"
@@ -132,18 +142,18 @@ export default function ProjectsSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 
+          <h2
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: currentTheme.colors.text }}
           >
-            My <AnimatedText 
-              text="Projects" 
+            My <AnimatedText
+              text="Projects"
               animatedIndices={[0]} // Animate 'P'
               className="inline"
               style={{ color: currentTheme.colors.primary }}
             />
           </h2>
-          <p 
+          <p
             className="max-w-2xl mx-auto"
             style={{ color: currentTheme.colors.textSecondary }}
           >
@@ -162,14 +172,14 @@ export default function ProjectsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               whileHover={{ y: -10 }}
-              className="rounded-xl overflow-hidden shadow-xl"
-              style={{ 
+              className="rounded-xl overflow-hidden shadow-xl flex flex-col h-full"
+              style={{
                 background: `linear-gradient(to bottom right, ${currentTheme.colors.background}, ${currentTheme.colors.surface})`
               }}
             >
               <div className="relative h-48 overflow-hidden">
-                <Image 
-                  src={project.imageUrl} 
+                <Image
+                  src={project.imageUrl}
                   alt={project.title}
                   width={600}
                   height={400}
@@ -177,8 +187,8 @@ export default function ProjectsSection() {
                 />
                 {/* App Icon Overlay */}
                 <div className="absolute top-4 left-4 w-16 h-16 bg-white rounded-xl shadow-lg p-2 border-2 border-white/20">
-                  <Image 
-                    src={project.iconUrl} 
+                  <Image
+                    src={project.iconUrl}
                     alt={`${project.title} icon`}
                     width={48}
                     height={48}
@@ -186,25 +196,25 @@ export default function ProjectsSection() {
                   />
                 </div>
               </div>
-              <div className="p-6">
-                <h3 
+              <div className="p-6 flex flex-col flex-grow">
+                <h3
                   className="text-xl font-bold mb-2"
                   style={{ color: currentTheme.colors.text }}
                 >
                   {project.title}
                 </h3>
-                <p 
+                <p
                   className="mb-4"
                   style={{ color: currentTheme.colors.textSecondary }}
                 >
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="text-xs px-2 py-1 rounded-full"
-                      style={{ 
+                      style={{
                         backgroundColor: currentTheme.colors.primary + '20',
                         color: currentTheme.colors.primary
                       }}
@@ -213,20 +223,59 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <motion.a
-                  href={project.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-4 px-4 py-2 rounded-lg font-medium transition-colors inline-block"
-                  style={{ 
-                    backgroundColor: currentTheme.colors.primary,
-                    color: getButtonTextColor(currentTheme)
-                  }}
-                >
-                  View Project
-                </motion.a>
+                {/* Spacer to push buttons to bottom */}
+                <div className="flex-grow"></div>
+                {/* Dual Platform Buttons for projects with both Android and iOS */}
+                {project.iosUrl ? (
+                  <div className="mt-4 flex gap-2 flex-wrap">
+                    <motion.a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-3 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-1 text-sm"
+                      style={{
+                        backgroundColor: currentTheme.colors.primary,
+                        color: getButtonTextColor(currentTheme)
+                      }}
+                    >
+                      Android Project
+                    </motion.a>
+                    <motion.a
+                      href={project.iosUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-3 py-2 rounded-lg font-medium transition-colors inline-flex items-center gap-1 text-sm"
+                      style={{
+                        backgroundColor: currentTheme.colors.primary,
+                        color: getButtonTextColor(currentTheme)
+                      }}
+                    >
+                      iOS Project
+                    </motion.a>
+                  </div>
+                ) : (
+                  /* Single Platform Button for projects with only one platform */
+                  <div className="mt-4">
+                    <motion.a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-4 py-2 rounded-lg font-medium transition-colors inline-block"
+                      style={{
+                        backgroundColor: currentTheme.colors.primary,
+                        color: getButtonTextColor(currentTheme)
+                      }}
+                    >
+                      View Project
+                    </motion.a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
